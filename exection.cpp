@@ -1,5 +1,11 @@
-#include "client.hpp"
 #include "server.hpp"
+
+
+// create an atoi for cpp 98 standard for the port
+
+//
+
+
 
 int main(int counter, char **str)
 {
