@@ -9,6 +9,11 @@ class Server
 	private:
 
 	public:
+	Server();// default constructor
+	Server();//constructor
+	Server(Server &copy);
+	Server &operator=(Server &source);
+	~Server();
 
 };
 

@@ -8,6 +8,8 @@
 //
 
 
+//Pasword creation
+
 int stringToInt(std::string str)
 {
 	int num = 0;
@@ -31,7 +33,6 @@ int portChecker(int port)
 		else
 			throw std::invalid_argument("not in port range");
 	}
-
 	catch(const std::invalid_argument& e)
 	{
 		std::cerr << e.what() << std::endl;
@@ -47,7 +48,6 @@ int main(int counter, char **str)
 		if(counter == 3)
 		{
 			portChecker(stringToInt(str[1]));
-			std::cout << str[1] << std::endl;
 			std::cout << str[2] << std::endl;
 		}
 		else
