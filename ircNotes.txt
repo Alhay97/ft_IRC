@@ -1,0 +1,58 @@
+ Start
+
+1. Initialize the server
+   - Create a socket
+     - AF_INET: Use IPv4 addresses
+     - SOCK_STREAM: Use TCP protocol
+   - Bind the socket to a specific IP address and port
+     - Set the socket address structure (sockaddr_in) with IP address and port number
+   - Listen for incoming connections on the socket
+     - Set the socket to the listening state
+
+2. Accept client connections
+   - Accept incoming connection requests
+     - Block until a client connection is established
+     - Accept the connection, creating a new socket for communication with the client
+   - Create a new thread/process for each client
+     - Spawn a new thread/process to handle the communication with the client
+     - Pass the newly created socket to the thread/process
+
+3. Handle client requests
+   - Receive data from the client
+     - Receive data from the client socket
+   - Parse the received data
+     - Parse the received data to identify the type of request
+     - Extract relevant information from the request
+   - Determine the type of request (JOIN, PRIVMSG, etc.)
+     - Identify the command or action requested by the client
+
+4. Process client requests
+   - Implement the logic for each request type
+     - Handle different commands such as JOIN, PRIVMSG, etc.
+     - Update the server state and client states as necessary
+   - Respond to client requests accordingly
+     - Prepare a response message based on the request type and server/client state
+     - Send the response message back to the client
+
+5. Broadcast messages
+   - Send messages to all connected clients
+     - Iterate through all connected clients
+     - Send the message to each client's socket
+   - Update client states with the received messages
+     - Store the received messages in each client's message history or buffer
+
+6. Handle client disconnections
+   - Detect client disconnection
+     - Check if the client socket is closed or an error occurs during communication
+   - Remove the client from the active client list
+     - Clean up any resources associated with the client
+     - Remove the client from the list of connected clients
+
+7. Handle server shutdown
+   - Listen for termination signals or commands
+     - Continuously check for termination signals or commands
+   - Gracefully shut down the server
+     - Close the listening socket to stop accepting new connections
+     - Close all client connections and release associated resources
+
+End
